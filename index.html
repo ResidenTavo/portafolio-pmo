@@ -223,6 +223,7 @@ table.t td { padding: 13px 10px; border-bottom: 1px solid rgba(160,170,255,.07);
 .perfil { display: grid; grid-template-columns: 380px 1fr; gap: 50px; align-items: start; }
 @media (max-width: 960px) { .perfil { grid-template-columns: 1fr; } }
 .retrato { position: relative; aspect-ratio: 4 / 5; border-radius: 26px; overflow: hidden; border: 1px solid var(--linea2); background: radial-gradient(circle at 50% 38%, rgba(124,131,255,.45), transparent 55%), linear-gradient(180deg, #14173A, #07081A); display: grid; place-items: center; perspective: 600px; }
+.retrato .avatar { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
 .retrato .ini { font-family: var(--display); font-weight: 800; font-size: 150px; letter-spacing: -.06em; color: transparent; -webkit-text-stroke: 1.5px rgba(220,224,255,.6); margin-top: -50px; }
 .retrato .orbita { position: absolute; left: 8%; right: 8%; top: 22%; aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(124,131,255,.45); transform: rotateX(72deg) rotateZ(-14deg); box-shadow: 0 0 30px rgba(124,131,255,.2); }
 .retrato .pie { position: absolute; inset: auto 0 0; padding: 22px; background: linear-gradient(0deg, rgba(4,5,11,.95), transparent); }
@@ -230,6 +231,11 @@ table.t td { padding: 13px 10px; border-bottom: 1px solid rgba(160,170,255,.07);
 .retrato .pie p { margin: 4px 0 0; color: var(--suave); font-size: 14px; }
 .creds { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
 .creds span { font: 500 11px var(--mono); letter-spacing: .06em; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--linea2); color: var(--suave); }
+.relato small { display: block; font: 500 12px var(--mono); letter-spacing: .1em; color: var(--cian); text-transform: uppercase; margin-bottom: 18px; }
+.relato p { margin: 0 0 18px; font-size: 18px; line-height: 1.75; color: var(--suave); }
+.relato .enlace-perfil a { color: var(--cian); font-weight: 600; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+.relato .enlace-perfil a:hover { opacity: .8; }
+.relato p b { color: var(--texto, #EEF0FF); font-weight: 600; }
 .hito { display: grid; grid-template-columns: 150px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--linea); }
 .hito:first-child { border-top: 1px solid var(--linea); }
 .hito small { font: 500 12px var(--mono); letter-spacing: .1em; color: var(--cian); padding-top: 4px; }
@@ -293,9 +299,9 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
       <a href="#perfil" class="btn">Quién está detrás</a>
     </div>
     <div class="datos-hero rev" style="--d:320ms">
-      <div><strong>+10</strong><span class="mono">años · banca, sector público, retail</span></div>
-      <div><strong>18</strong><span class="mono">iniciativas estratégicas coordinadas</span></div>
-      <div><strong>800+</strong><span class="mono">perfiles de puesto rediseñados</span></div>
+      <div><strong>+10</strong><span class="mono">años · sector público y privado</span></div>
+      <div><strong>360°</strong><span class="mono">estrategia, procesos y tecnología</span></div>
+      <div><strong>1</strong><span class="mono">herramienta propia: Orbit</span></div>
     </div>
   </div>
   <div class="desliza" aria-hidden="true"><span></span></div>
@@ -395,14 +401,19 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
     <div class="capitulo rev">
       <div class="num">— —</div>
       <div><h2>Quién está <span class="serif">detrás</span></h2>
-      <p>Ingeniero Industrial (UPC). Conecto negocio y tecnología con planeamiento estratégico, gestión de portafolios y mejora de procesos.</p></div>
+      <p>Ingeniero Industrial. Conecto negocio y tecnología con planeamiento estratégico, gestión de portafolios y mejora de procesos.</p></div>
     </div>
     <div class="perfil">
       <div class="rev">
-        <div class="retrato"><div class="orbita" aria-hidden="true"></div><span class="ini" aria-hidden="true">GC</span><div class="pie"><h3>Gustavo Copara</h3><p>PMO · Planeamiento estratégico · Transformación digital</p></div></div>
+        <div class="retrato"><div class="orbita" aria-hidden="true"></div><img class="avatar" src="avatar.webp" alt="Avatar 3D de Gustavo Copara" width="800" height="1000" loading="lazy" decoding="async"><div class="pie"><h3>Gustavo Copara</h3><p>PMO · Planeamiento estratégico · Transformación digital</p></div></div>
         <div class="creds"><span>PMI · Agile</span><span>Scrum Master</span><span>Balanced Scorecard</span><span>Six Sigma</span><span>BPM · Bizagi</span><span>Power BI</span><span>RPA · UiPath</span><span>ISO 9001</span></div>
       </div>
-      <div class="rev" id="trayectoria"></div>
+      <div class="rev relato" id="trayectoria">
+        <small>Más de una década de trayectoria</small>
+        <p>Conecto la estrategia con la ejecución. Lidero <b>planeamiento estratégico y portafolios de proyectos de transformación digital</b>, combinando metodologías ágiles y tradicionales con indicadores que ayudan a la dirección a decidir con datos.</p>
+        <p>He trabajado en el <b>sector público y privado</b>, articulando negocio, operaciones y tecnología para mejorar procesos, ordenar la gestión y llevar las iniciativas de la idea al resultado.</p>
+        <p class="enlace-perfil"><a href="https://www.linkedin.com/in/gustavo-copara" target="_blank" rel="noopener">Conoce mi experiencia en detalle en LinkedIn <span aria-hidden="true">→</span></a></p>
+      </div>
     </div>
   </div>
 </section>
@@ -494,13 +505,6 @@ const CICLO = [
   ['#FFB547', 'Fase 05', 'Cierre', [['Acta de Conformidad', 'D6'], ['Acta de Cierre', 'D7'], ['Lecciones', '—']]],
 ];
 
-const TRAYECTORIA = [
-  ['2023 — hoy', 'Planeamiento Estratégico y Gestión de Proyectos', 'Lidero el portafolio de iniciativas estratégicas y de transformación digital con metodologías híbridas (PMI + Agile), KPIs y dashboards ejecutivos.'],
-  ['2022 — 2023', 'Mejora de Procesos · Banco de la Nación', 'Coordiné 18 iniciativas del Plan Estratégico Institucional y la actualización de más de 800 perfiles de puesto.'],
-  ['2022', 'Coordinación Logística · Proyecto Especial Legado', 'Operación de centros de vacunación masiva para más de 30 000 atenciones mensuales.'],
-  ['2021 — 2022', 'Gestión Documental · EsSalud', 'Transformación del sistema de gestión documental en 33 gerencias, con un equipo de 35 personas.'],
-  ['2013 — 2021', 'Compras, procesos y banca', 'Automatización de reportes, comprobantes electrónicos en ERP y gestión comercial en BanBif, BCP e Interbank.'],
-];
 
 /* ===================================================================== */
 const $ = (s) => document.querySelector(s);
@@ -557,7 +561,6 @@ $('#franja').innerHTML = [...lemas, ...lemas].map((t) => `<span>${t}</span>`).jo
 $('#bento').innerHTML = MODULOS.map(([t, c, h, q, l, ancho], i) => `<article class="modulo rev${ancho ? ' ancho' : ''}" style="--tono:${c}55;--acento:${c};--d:${(i % 3) * 60}ms">${maqueta(t, c)}<span class="mono">${String(i + 1).padStart(2, '0')} · ${q}</span><h3>${h}</h3><ul>${l.map((x) => `<li>${x}</li>`).join('')}</ul></article>`).join('');
 $('#impactoGrid').innerHTML = IMPACTO.map(([n, t, d], i) => `<div class="rev" style="--d:${(i % 3) * 70}ms"><strong>${n}</strong><h3>${t}</h3><p>${d}</p></div>`).join('');
 $('#ciclo').insertAdjacentHTML('beforeend', CICLO.map(([c, n, t, l]) => `<div class="fase" style="--c:${c}"><div class="nodo"></div><div class="mono">${n}</div><h3>${t}</h3><ul>${l.map(([x, k]) => `<li>${x}<span>${k}</span></li>`).join('')}</ul></div>`).join(''));
-$('#trayectoria').innerHTML = TRAYECTORIA.map(([f, t, d]) => `<div class="hito"><small>${f}</small><div><h4>${t}</h4><p>${d}</p></div></div>`).join('');
 $('#corteTxt').textContent = fecha(DATOS.corte);
 $('#anio').textContent = new Date().getFullYear();
 
